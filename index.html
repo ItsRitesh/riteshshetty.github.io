@@ -449,7 +449,7 @@
             <p>
               <sm>CONTACT FORM</sm>
             </p>
-            <form class="contact-form php-mail-form" role="form" action="https://formspree.io/f/xoqyoebe" method="POST">
+            <form class="contact-form php-mail-form" name="input" action="https://formspree.io/f/xoqyoebe" method="POST">
 
               <div class="form-group">
                 <label for="contact-name">Your Name</label>
@@ -475,11 +475,11 @@
 
               <!--<div class="loading"></div>
               <div class="error-message"></div>-->
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div id="thank-you-message" class="sent-message">Your message has been sent. Thank you!</div>
 
               <div class="form-send">
                 <button type="submit" class="btn btn-large">Send Message</button>
-              </div>s
+              </div>
             </form>
 
           </div>
