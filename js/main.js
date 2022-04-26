@@ -20,11 +20,11 @@ jQuery(document).ready(function( $ ) {
 
   // Java/JEE Chart
   var doughnutData = [{
-      value: 90,
+      value: 75,
       color: "#1abc9c"
     },
     {
-      value: 10,
+      value: 25,
       color: "#ecf0f1"
     }
   ];
@@ -32,11 +32,11 @@ jQuery(document).ready(function( $ ) {
 
   // SpringBoot/Cloud Chart
   var doughnutData = [{
-    value: 80,
+    value: 70,
     color: "#1abc9c"
   },
   {
-    value: 20,
+    value: 30,
     color: "#ecf0f1"
   }
   ];
@@ -68,11 +68,11 @@ jQuery(document).ready(function( $ ) {
 
   // Docker Chart
   var doughnutData = [{
-    value: 80,
+    value: 70,
     color: "#1abc9c"
   },
   {
-    value: 20,
+    value: 30,
     color: "#ecf0f1"
   }
   ];
@@ -80,11 +80,11 @@ jQuery(document).ready(function( $ ) {
 
   // Golang/devops Chart
   var doughnutData = [{
-    value: 50,
+    value: 40,
     color: "#1abc9c"
   },
   {
-    value: 50,
+    value: 60,
     color: "#ecf0f1"
   }
   ];
