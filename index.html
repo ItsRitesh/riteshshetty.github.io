@@ -8,39 +8,48 @@
   <style>
     :root {
       --bg: #020617;
+      --card: #020617;
       --text: #e5e7eb;
       --subtext: #c7d2fe;
       --muted: #94a3b8;
       --accent: #6366f1;
       --border: #1e293b;
-      --card: #020617;
       --link: #93c5fd;
+      --badge: #1e293b;
     }
 
     [data-theme="light"] {
       --bg: #ffffff;
+      --card: #f8fafc;
       --text: #0f172a;
       --subtext: #334155;
       --muted: #475569;
       --accent: #4f46e5;
       --border: #e2e8f0;
-      --card: #f8fafc;
       --link: #2563eb;
+      --badge: #eef2ff;
     }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
       line-height: 1.7;
       transition: background 0.2s ease, color 0.2s ease;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1100px;
       margin: auto;
-      padding: 72px 24px;
+      padding: 64px 24px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
     }
 
     h1 {
@@ -57,64 +66,86 @@
       padding-left: 12px;
     }
 
-    p {
-      color: var(--subtext);
-      max-width: 780px;
-    }
-
     .subtitle {
       font-size: 18px;
       color: var(--muted);
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
-    .tagline {
-      font-size: 16px;
-      color: var(--subtext);
-      margin-bottom: 16px;
+    .badge {
+      display: inline-block;
+      background: var(--badge);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-family: "SF Mono", Consolas, monospace;
+      margin-bottom: 12px;
     }
 
     .meta {
       font-family: "SF Mono", Consolas, monospace;
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 24px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 16px;
+      margin-top: 12px;
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .section {
+      margin-top: 72px;
     }
 
     ul {
-      padding-left: 20px;
+      padding-left: 18px;
     }
 
     li {
       margin-bottom: 10px;
     }
 
-    .section {
-      margin-top: 64px;
+    /* EXPERIENCE TIMELINE */
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 24px;
     }
 
-    .links a {
-      margin-right: 20px;
-      color: var(--link);
-      text-decoration: none;
-      font-weight: 500;
+    .timeline-item {
+      margin-bottom: 32px;
+      position: relative;
     }
 
-    .links a:hover {
-      text-decoration: underline;
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -33px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
     }
 
+    /* SKILLS GRID */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
-    }
-
-    .skill-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 6px;
     }
 
     footer {
@@ -127,130 +158,167 @@
 
     .toggle {
       position: fixed;
-      top: 20px;
+      top: 18px;
       right: 24px;
-      font-size: 14px;
-      cursor: pointer;
       padding: 6px 10px;
+      font-size: 13px;
       border-radius: 6px;
       border: 1px solid var(--border);
       background: var(--card);
-      color: var(--text);
+      cursor: pointer;
       font-family: "SF Mono", Consolas, monospace;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
-<body data-theme="dark">
+<body>
 
-  <!-- THEME TOGGLE -->
-  <button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+<button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <h1>Ritesh Shetty</h1>
-    <div class="subtitle">
-      Engineering Manager | Backend & Platform Systems
-    </div>
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <span class="badge">Exploring Applied AI in Backend Systems</span>
 
-    <p class="tagline">
-      I lead teams building scalable backend platforms across Logistics,
-      Digital Procurement, and Supply Chain domains.
-    </p>
+      <h1>Ritesh Shetty</h1>
+      <div class="subtitle">
+        Engineering Manager | Backend & Platform Systems
+      </div>
 
-    <div class="meta">
-      11+ years experience · Backend & Platform Engineering · Java · Microservices · Cloud
-    </div>
-
-    <div class="links">
-      <a href="https://www.linkedin.com/in/ritesh-shetty-224a2259/" target="_blank">LinkedIn</a>
-      <a href="file/Ritesh-Shetty–Engineering-Manager-Resume-11-YOE.pdf" target="_blank">
-        Download Resume
-      </a>
-    </div>
-
-    <!-- WHAT I DO -->
-    <div class="section">
-      <h2>What I Focus On</h2>
-      <ul>
-        <li>Engineering leadership and team growth</li>
-        <li>Technical design and architecture for backend platforms</li>
-        <li>End-to-end delivery ownership (planning → production)</li>
-        <li>Mentoring engineers and building strong engineering culture</li>
-        <li>Cloud-native systems using Java, Microservices, and Kubernetes</li>
-      </ul>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <div class="section">
-      <h2>Experience Snapshot</h2>
-
-      <p><strong>Engineering Manager – Maersk (2025 – Present)</strong><br/>
-        Leading backend teams delivering ESG compliance and Supplier platforms.
-        Own delivery execution, architecture decisions, and team development
-        while staying hands-on with system design.
+      <p>
+        I lead teams building scalable backend platforms across Logistics,
+        Digital Procurement, and Supply Chain domains.
       </p>
 
-      <p><strong>Senior Engineer / Technical Lead (2018 – 2025)</strong><br/>
-        Designed and scaled backend systems across Retail, Logistics, and
-        Procurement domains. Led design discussions, mentored engineers,
-        and owned critical platform components.
-      </p>
+      <div class="meta">
+        11+ years experience · Java · Microservices · Cloud · Engineering Leadership
+      </div>
 
-      <p><strong>Early Career (2014 – 2018)</strong><br/>
-        Built strong foundations in backend engineering, API design,
-        and Agile delivery at scale.
-      </p>
-    </div>
-
-    <!-- TECH -->
-    <div class="section">
-      <h2>Technical Strengths</h2>
-
-      <div class="skills-grid">
-        <div class="skill-box">
-          <strong>Backend Engineering</strong><br/>
-          Java, Spring Boot, Reactive Systems, REST APIs
-        </div>
-
-        <div class="skill-box">
-          <strong>System Architecture</strong><br/>
-          Microservices, Distributed Systems, Multi-tenancy
-        </div>
-
-        <div class="skill-box">
-          <strong>Cloud & DevOps</strong><br/>
-          Kubernetes, Azure, GCP, AWS, GitHub Actions
-        </div>
-
-        <div class="skill-box">
-          <strong>Data & Platforms</strong><br/>
-          PostgreSQL, Couchbase, Platform APIs
-        </div>
-
-        <div class="skill-box">
-          <strong>Engineering Practices</strong><br/>
-          Agile Delivery, CI/CD, Code Reviews, System Design
-        </div>
+      <div class="links">
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ItsRitesh" target="_blank">GitHub</a>
+        <a href="file/Ritesh_Shetty_Engineering_Manager.pdf" target="_blank">
+          Download Resume
+        </a>
       </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-      Interested in engineering leadership, backend platforms,
-      or system design discussions.
-    </footer>
-
+    <div class="card">
+      <strong>Current Focus</strong>
+      <ul>
+        <li>Engineering leadership & delivery</li>
+        <li>Backend system design</li>
+        <li>Cloud-native platforms</li>
+        <li>AI-enabled engineering workflows</li>
+      </ul>
+    </div>
   </div>
 
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      body.dataset.theme =
-        body.dataset.theme === "dark" ? "light" : "dark";
-    }
-  </script>
+  <!-- WHAT I DO -->
+  <div class="section">
+    <h2>What I Focus On</h2>
+    <div class="card">
+      <ul>
+        <li>Leading and mentoring backend engineering teams</li>
+        <li>Architecture and design of distributed systems</li>
+        <li>End-to-end ownership from planning to production</li>
+        <li>Building strong engineering culture and practices</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>Engineering Manager – Maersk (2025 – Present)</strong>
+        <p>
+          Leading backend teams delivering ESG compliance and Supplier platforms.
+          Own delivery execution, architecture decisions, and team growth.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <strong>Senior Engineer / Technical Lead (2018 – 2025)</strong>
+        <p>
+          Designed and scaled backend systems across Retail, Logistics,
+          and Procurement domains.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <strong>Software Engineer (2014 – 2018)</strong>
+        <p>
+          Built strong foundations in backend engineering, API design,
+          and Agile delivery.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH -->
+  <div class="section">
+    <h2>Technical Strengths</h2>
+    <div class="skills-grid">
+      <div class="card">
+        <strong>Backend Engineering</strong><br/>
+        Java, Spring Boot, Reactive Systems, REST APIs
+      </div>
+      <div class="card">
+        <strong>System Architecture</strong><br/>
+        Microservices, Distributed Systems, Multi-tenancy
+      </div>
+      <div class="card">
+        <strong>Cloud & DevOps</strong><br/>
+        Kubernetes, Azure, GCP, AWS, GitHub Actions
+      </div>
+      <div class="card">
+        <strong>Data Platforms</strong><br/>
+        PostgreSQL, Couchbase
+      </div>
+    </div>
+  </div>
+
+  <!-- LEARNING -->
+  <div class="section">
+    <h2>Continuous Learning & Applied AI Focus</h2>
+    <div class="card">
+      <ul>
+        <li>Exploring applied AI and LLM integration for backend systems</li>
+        <li>Experimenting with Spring AI in Java-based platforms</li>
+        <li>Hands-on prototyping using Python-based environments</li>
+        <li>Applying AI-assisted tooling to improve developer productivity</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Interested in engineering leadership, backend platforms,
+    and applied AI in software engineering.
+  </footer>
+
+</div>
+
+<script>
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.dataset.theme = savedTheme;
+
+  function toggleTheme() {
+    const newTheme =
+      document.body.dataset.theme === "dark" ? "light" : "dark";
+    document.body.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
 
 </body>
 </html>
